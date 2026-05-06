@@ -29,7 +29,7 @@ export default function Home() {
       <Navbar />
       
       {/* Hero Section */}
-      <Section className="flex flex-col items-center justify-center min-h-screen text-center relative">
+      <Section id="about" className="flex flex-col items-center justify-center min-h-screen text-center relative">
         <header className="mb-12 animate-in fade-in slide-in-from-top-8 duration-1000">
           <div className="inline-block px-4 py-1 rounded-full bg-neon-cyan/10 border border-neon-cyan/20 text-neon-cyan text-xs font-bold uppercase tracking-[0.2em] mb-6">
             Portfolio v1.0
@@ -52,12 +52,27 @@ export default function Home() {
         </div>
       </Section>
 
+      {/* Skills Section Placeholder */}
+      <Section id="skills" className="py-24 border-t border-white/5">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-white mb-4">SKILLS</h2>
+          <p className="text-text-primary/40 uppercase tracking-[0.3em] text-xs font-bold">Tools & Technologies</p>
+        </div>
+        <div className="flex flex-wrap justify-center gap-4">
+          {["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Node.js", "PostgreSQL", "Prisma", "Docker"].map((skill) => (
+            <div key={skill} className="glass px-6 py-3 rounded-xl border border-white/5 hover:border-neon-cyan/50 hover:shadow-neon-cyan transition-all cursor-default">
+              <span className="text-sm font-medium">{skill}</span>
+            </div>
+          ))}
+        </div>
+      </Section>
+
       {/* Projects Section */}
-      <Section id="work" className="pt-0">
+      <Section id="projects" className="py-24 border-t border-white/5">
         <div className="flex justify-between items-end mb-12">
           <div>
-            <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-white mb-2">SELECTED WORKS</h2>
-            <p className="text-text-primary/40 uppercase tracking-[0.3em] text-xs font-bold">Project Archive 2024-2026</p>
+            <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-white mb-2">PROJECTS</h2>
+            <p className="text-text-primary/40 uppercase tracking-[0.3em] text-xs font-bold">Selected Works 2024-2026</p>
           </div>
           <div className="hidden md:block h-px bg-white/10 flex-grow mx-12 mb-4" />
           <button className="text-xs font-bold uppercase tracking-widest text-neon-cyan hover:underline transition-all">
@@ -74,8 +89,30 @@ export default function Home() {
         </div>
       </Section>
 
+      {/* Internship Section Placeholder */}
+      <Section id="internship" className="py-24 border-t border-white/5">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-white mb-4">EXPERIENCE</h2>
+          <p className="text-text-primary/40 uppercase tracking-[0.3em] text-xs font-bold">Professional Journey</p>
+        </div>
+        <div className="max-w-3xl mx-auto space-y-8">
+          <div className="glass p-8 rounded-3xl border border-white/5 relative overflow-hidden group">
+            <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
+              <h3 className="text-2xl font-bold text-neon-purple">Frontend Developer Intern</h3>
+              <span className="text-sm text-text-primary/40 font-bold uppercase tracking-widest">June 2025 - Present</span>
+            </div>
+            <p className="text-text-primary/70 mb-4">Tech Nova Solutions</p>
+            <ul className="list-disc list-inside text-sm text-text-primary/60 space-y-2">
+              <li>Developing high-performance user interfaces using Next.js and Tailwind CSS.</li>
+              <li>Collaborating with senior developers to implement complex animations with Framer Motion.</li>
+              <li>Optimizing application performance and accessibility standards.</li>
+            </ul>
+          </div>
+        </div>
+      </Section>
+
       {/* Contact Section */}
-      <Section id="contact" className="pb-32">
+      <Section id="contact" className="py-24 border-t border-white/5 pb-32">
         <div className="glass p-12 md:p-24 rounded-[3rem] border border-white/5 relative overflow-hidden text-center">
           <div className="absolute inset-0 bg-gradient-to-br from-neon-cyan/5 to-neon-purple/5 pointer-events-none" />
           <h2 className="text-5xl md:text-8xl font-bold tracking-tighter text-white mb-8 relative z-10">
