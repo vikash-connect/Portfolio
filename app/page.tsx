@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Section from "@/components/Section";
 import ProjectCard from "@/components/ProjectCard";
+import Hero from "@/sections/Hero";
 
 export default function Home() {
   const projects = [
@@ -29,30 +30,9 @@ export default function Home() {
       <Navbar />
       
       {/* Hero Section */}
-      <Section id="about" className="flex flex-col items-center justify-center min-h-screen text-center relative">
-        <header className="mb-12 animate-in fade-in slide-in-from-top-8 duration-1000">
-          <div className="inline-block px-4 py-1 rounded-full bg-neon-cyan/10 border border-neon-cyan/20 text-neon-cyan text-xs font-bold uppercase tracking-[0.2em] mb-6">
-            Portfolio v1.0
-          </div>
-          <h1 className="text-6xl md:text-9xl font-bold tracking-tighter mb-4 bg-gradient-to-r from-neon-cyan via-neon-purple to-neon-cyan bg-[length:200%_auto] animate-pulse-slow bg-clip-text text-transparent leading-none">
-            VIKASH <br className="hidden md:block" /> PORTFOLIO
-          </h1>
-          <p className="text-xl md:text-2xl text-text-primary/60 max-w-2xl mx-auto font-light leading-relaxed">
-            Crafting digital experiences with <span className="text-white font-medium">precision</span> and <span className="text-neon-cyan font-medium">neon</span> aesthetics.
-          </p>
-        </header>
+      <Hero />
 
-        <div className="flex gap-4 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-500">
-          <button className="bg-white text-black px-8 py-4 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-neon-cyan transition-colors">
-            View My Work
-          </button>
-          <button className="glass px-8 py-4 rounded-full font-bold uppercase tracking-widest text-xs border border-white/10 hover:border-white/30 transition-colors">
-            Download CV
-          </button>
-        </div>
-      </Section>
-
-      {/* Skills Section Placeholder */}
+      {/* Skills Section */}
       <Section id="skills" className="py-24 border-t border-white/5">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-white mb-4">SKILLS</h2>
@@ -89,7 +69,7 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* Internship Section Placeholder */}
+      {/* Internship Section */}
       <Section id="internship" className="py-24 border-t border-white/5">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-white mb-4">EXPERIENCE</h2>
