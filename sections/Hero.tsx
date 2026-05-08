@@ -4,10 +4,20 @@ import React, { useEffect, useState, useRef } from "react";
 import { motion, useScroll, useTransform, useSpring, useMotionValue } from "framer-motion";
 import MagneticButton from "@/components/MagneticButton";
 
+interface Particle {
+  x: string;
+  y: string;
+  opacity: number;
+  duration: number;
+  yMove: string;
+}
+
 const Hero = () => {
   const [text, setText] = useState("");
   const fullText = "I build web apps, experiment with AI workflows, and ship projects fast.";
   const [index, setIndex] = useState(0);
+  const [mounted, setMounted] = useState(false);
+  const [particles, setParticles] = useState<Particle[]>([]);
 
   // Mouse Parallax
   const mouseX = useMotionValue(0);
@@ -20,6 +30,19 @@ const Hero = () => {
   const moveY = useTransform(springY, [-500, 500], [-30, 30]);
 
   useEffect(() => {
+    setMounted(true);
+
+    // Generate particles only on client-side to prevent hydration mismatch
+    const generatedParticles = Array.from({ length: 25 }).map(() => ({
+      x: Math.random() * 100 + "%",
+      y: Math.random() * 100 + "%",
+      opacity: Math.random() * 0.5,
+      duration: Math.random() * 5 + 5,
+      yMove: Math.random() * -100 - 50 + "px",
+    }));
+
+    setParticles(generatedParticles);
+
     const handleMouseMove = (e: MouseEvent) => {
       const { clientX, clientY } = e;
       const moveXVal = clientX - window.innerWidth / 2;
@@ -55,29 +78,31 @@ const Hero = () => {
         <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
       </div>
 
-      {/* Particles Effect */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            initial={{ 
-              x: Math.random() * 100 + "%", 
-              y: Math.random() * 100 + "%", 
-              opacity: Math.random() * 0.5 
-            }}
-            animate={{ 
-              y: [null, Math.random() * -100 - 50 + "px"],
-              opacity: [null, 0]
-            }}
-            transition={{ 
-              duration: Math.random() * 5 + 5, 
-              repeat: Infinity, 
-              ease: "linear" 
-            }}
-            className="absolute w-[2px] h-[2px] bg-white rounded-full shadow-[0_0_10px_white]"
-          />
-        ))}
-      </div>
+      {/* Particles Effect - Client Only */}
+      {mounted && (
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {particles.map((particle, i) => (
+            <motion.div
+              key={i}
+              initial={{ 
+                x: particle.x, 
+                y: particle.y, 
+                opacity: particle.opacity 
+              }}
+              animate={{ 
+                y: [null, particle.yMove],
+                opacity: [null, 0]
+              }}
+              transition={{ 
+                duration: particle.duration, 
+                repeat: Infinity, 
+                ease: "linear" 
+              }}
+              className="absolute w-[2px] h-[2px] bg-white rounded-full shadow-[0_0_10px_white]"
+            />
+          ))}
+        </div>
+      )}
 
       {/* Main Content */}
       <motion.div 
