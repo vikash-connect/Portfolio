@@ -3,6 +3,7 @@ import Section from "@/components/Section";
 import ProjectCard from "@/components/ProjectCard";
 import Hero from "@/sections/Hero";
 import About from "@/sections/About";
+import Skills from "@/sections/Skills";
 
 export default function Home() {
   const projects = [
@@ -38,19 +39,7 @@ export default function Home() {
         <About />
 
         {/* Skills Section */}
-        <Section id="skills" className="py-24 border-t border-white/5">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-white mb-4">SKILLS</h2>
-            <p className="text-text-primary/40 uppercase tracking-[0.3em] text-xs font-bold">Tools & Technologies</p>
-          </div>
-          <div className="flex flex-wrap justify-center gap-4">
-            {["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Node.js", "PostgreSQL", "Prisma", "Docker"].map((skill) => (
-              <div key={skill} className="glass px-6 py-3 rounded-xl border border-white/5 hover:border-neon-cyan/50 hover:shadow-neon-cyan transition-all cursor-default">
-                <span className="text-sm font-medium">{skill}</span>
-              </div>
-            ))}
-          </div>
-        </Section>
+        <Skills />
 
         {/* Projects Section */}
         <Section id="projects" className="py-24 border-t border-white/5">
