@@ -15,6 +15,19 @@
 
   --shadow-neon-cyan: 0 0 15px var(--neon-cyan);
   --shadow-neon-purple: 0 0 15px var(--neon-purple);
+
+  --animate-gradient-xy: gradient-xy 15s ease infinite;
+  
+  @keyframes gradient-xy {
+    0%, 100% {
+      background-size: 400% 400%;
+      background-position: left top;
+    }
+    50% {
+      background-size: 200% 200%;
+      background-position: right bottom;
+    }
+  }
   
   @keyframes blob {
     0% {

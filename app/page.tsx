@@ -4,6 +4,7 @@ import ProjectCard from "@/components/ProjectCard";
 import Hero from "@/sections/Hero";
 import About from "@/sections/About";
 import Skills from "@/sections/Skills";
+import FeaturedProject from "@/sections/FeaturedProject";
 
 export default function Home() {
   const projects = [
@@ -40,6 +41,9 @@ export default function Home() {
 
         {/* Skills Section */}
         <Skills />
+
+        {/* Featured Project Section */}
+        <FeaturedProject />
 
         {/* Projects Section */}
         <Section id="projects" className="py-24 border-t border-white/5">
