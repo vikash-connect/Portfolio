@@ -6,39 +6,44 @@ import { ExternalLink, CheckCircle2 } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import Section from "@/components/Section";
 
-const features = [
-  "Candidate & party data display",
-  "REST API backend architecture",
-  "MongoDB database integration",
-  "Responsive dashboard UI",
-  "Cloud deployed production app",
-];
+interface ProjectProps {
+  title: string;
+  tagline: string;
+  features: string[];
+  techStack: string[];
+  liveLink: string;
+  previewLabel: string;
+  imagePosition?: "left" | "right";
+  isLast?: boolean;
+}
 
-const techStack = [
-  "React",
-  "Node.js",
-  "Express",
-  "MongoDB",
-  "REST API",
-  "Cloud Deployment",
-];
+const ProjectShowcase = ({
+  title,
+  tagline,
+  features,
+  techStack,
+  liveLink,
+  previewLabel,
+  imagePosition = "left",
+  isLast = false,
+}: ProjectProps) => {
+  const isImageLeft = imagePosition === "left";
 
-const FeaturedProject = () => {
   return (
-    <Section id="featured-project" className="relative overflow-hidden">
+    <div className={`relative ${!isLast ? "mb-32 md:mb-48" : ""}`}>
       {/* Background Decorative Element */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-neon-cyan/10 blur-[120px] rounded-full pointer-events-none" />
+      <div className={`absolute top-1/2 ${isImageLeft ? "left-1/4" : "right-1/4"} -translate-y-1/2 w-[400px] h-[400px] bg-neon-cyan/5 blur-[100px] rounded-full pointer-events-none`} />
 
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true }}
-        className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center"
+        className={`flex flex-col ${isImageLeft ? "lg:flex-row" : "lg:flex-row-reverse"} gap-12 lg:gap-20 items-center`}
       >
-        {/* Left Side: Project Screenshot Placeholder */}
+        {/* Project Screenshot Placeholder */}
         <motion.div
-          whileHover={{ rotateX: 5, rotateY: -5, scale: 1.02 }}
+          whileHover={{ rotateX: 5, rotateY: isImageLeft ? -5 : 5, scale: 1.02 }}
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
           className="relative w-full lg:w-1/2 aspect-video rounded-3xl overflow-hidden glass border border-white/10 group cursor-default"
         >
@@ -51,11 +56,13 @@ const FeaturedProject = () => {
             
             <div className="w-20 h-20 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:border-neon-cyan/50 transition-all duration-500">
               <div className="w-10 h-10 bg-gradient-to-br from-neon-cyan to-neon-purple rounded-lg opacity-50 blur-sm absolute" />
-              <div className="relative text-white font-black text-2xl">EA</div>
+              <div className="relative text-white font-black text-2xl">
+                {title.split(" ")[0].substring(0, 2).toUpperCase()}
+              </div>
             </div>
             
             <h4 className="text-xl font-bold text-white/40 uppercase tracking-[0.2em]">
-              Project Screenshot
+              {previewLabel}
             </h4>
             <div className="mt-4 flex gap-2">
               <div className="w-2 h-2 rounded-full bg-neon-cyan animate-pulse" />
@@ -65,15 +72,15 @@ const FeaturedProject = () => {
           </div>
 
           {/* Subtitle Glass Overlay */}
-          <div className="absolute bottom-6 left-6 right-6 p-4 glass rounded-2xl border border-white/5 z-20 transform translate-y-12 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-            <p className="text-xs text-text-primary/60 font-medium">Interactive Election Monitoring & Analytics Platform</p>
+          <div className="absolute bottom-6 left-6 right-6 p-4 glass rounded-2xl border border-white/5 z-20 transform translate-y-12 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 text-center">
+            <p className="text-xs text-text-primary/60 font-medium">{tagline}</p>
           </div>
         </motion.div>
 
-        {/* Right Side: Text Content */}
+        {/* Text Content */}
         <div className="w-full lg:w-1/2">
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ opacity: 0, x: isImageLeft ? 20 : -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
@@ -82,7 +89,7 @@ const FeaturedProject = () => {
               Featured Project
             </span>
             <h3 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight drop-shadow-[0_0_15px_rgba(0,245,255,0.3)]">
-              Election Assistant — <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan to-neon-purple">Full Stack Web App</span>
+              {title}
             </h3>
 
             {/* Feature List */}
@@ -124,7 +131,7 @@ const FeaturedProject = () => {
             {/* Action Buttons */}
             <div className="flex flex-wrap gap-5">
               <motion.a
-                href="https://election-assistant-268328857051.us-central1.run.app/"
+                href={liveLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ 
@@ -158,6 +165,49 @@ const FeaturedProject = () => {
           </motion.div>
         </div>
       </motion.div>
+    </div>
+  );
+};
+
+const FeaturedProject = () => {
+  return (
+    <Section id="featured-project" className="relative">
+      <div className="mb-20">
+        <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-white mb-4 uppercase">Featured Work</h2>
+        <div className="w-20 h-1 bg-gradient-to-r from-neon-cyan to-neon-purple rounded-full" />
+      </div>
+
+      <ProjectShowcase
+        title="Election Assistant — Full Stack Web App"
+        tagline="Interactive Election Monitoring & Analytics Platform"
+        previewLabel="Project Screenshot"
+        liveLink="https://election-assistant-268328857051.us-central1.run.app/"
+        features={[
+          "Candidate & party data display",
+          "REST API backend architecture",
+          "MongoDB database integration",
+          "Responsive dashboard UI",
+          "Cloud deployed production app",
+        ]}
+        techStack={["React", "Node.js", "Express", "MongoDB", "REST API", "Cloud Deployment"]}
+        imagePosition="left"
+      />
+
+      <ProjectShowcase
+        title="Parallel — AI Career Simulation Platform"
+        tagline="AI-driven platform that simulates future careers and decision paths."
+        previewLabel="Parallel App Preview"
+        liveLink="https://paraller-three.vercel.app/"
+        features={[
+          "AI Personality & Career Mapping",
+          "Interactive Career Simulations",
+          "Decision DNA Analysis",
+          "Future Career Projection",
+        ]}
+        techStack={["Next.js", "React", "Tailwind", "AI APIs", "Vercel"]}
+        imagePosition="right"
+        isLast={true}
+      />
     </Section>
   );
 };
