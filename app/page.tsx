@@ -1,32 +1,12 @@
 import Navbar from "@/components/Navbar";
 import Section from "@/components/Section";
-import ProjectCard from "@/components/ProjectCard";
 import Hero from "@/sections/Hero";
 import About from "@/sections/About";
 import Skills from "@/sections/Skills";
 import FeaturedProject from "@/sections/FeaturedProject";
+import OtherProjects from "@/sections/OtherProjects";
 
 export default function Home() {
-  const projects = [
-    {
-      title: "Neural Interface",
-      description: "A futuristic dashboard for monitoring brain-computer interface telemetry in real-time.",
-      tags: ["Next.js", "Three.js", "Tailwind"],
-      link: "#"
-    },
-    {
-      title: "Cryptex Wallet",
-      description: "Next-generation crypto asset management with biometric security and gasless transactions.",
-      tags: ["Solidity", "React", "Ether.js"],
-      link: "#"
-    },
-    {
-      title: "Zenith OS",
-      description: "A cloud-based desktop environment built for high-performance distributed computing.",
-      tags: ["Rust", "Wasm", "TypeScript"],
-      link: "#"
-    }
-  ];
 
   return (
     <>
@@ -45,27 +25,8 @@ export default function Home() {
         {/* Featured Project Section */}
         <FeaturedProject />
 
-        {/* Projects Section */}
-        <Section id="projects" className="py-24 border-t border-white/5">
-          <div className="flex justify-between items-end mb-12">
-            <div>
-              <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-white mb-2">PROJECTS</h2>
-              <p className="text-text-primary/40 uppercase tracking-[0.3em] text-xs font-bold">Selected Works 2024-2026</p>
-            </div>
-            <div className="hidden md:block h-px bg-white/10 flex-grow mx-12 mb-4" />
-            <button className="text-xs font-bold uppercase tracking-widest text-neon-cyan hover:underline transition-all">
-              View All Projects
-            </button>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <div key={project.title} className={`animate-in fade-in slide-in-from-bottom-12 duration-1000 delay-${(index + 1) * 200}`}>
-                <ProjectCard {...project} />
-              </div>
-            ))}
-          </div>
-        </Section>
+        {/* Other Projects Section */}
+        <OtherProjects />
 
         {/* Internship Section */}
         <Section id="internship" className="py-24 border-t border-white/5">
