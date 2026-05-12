@@ -5,6 +5,7 @@ import About from "@/sections/About";
 import Skills from "@/sections/Skills";
 import FeaturedProject from "@/sections/FeaturedProject";
 import OtherProjects from "@/sections/OtherProjects";
+import Internship from "@/sections/Internship";
 
 export default function Home() {
 
@@ -29,26 +30,7 @@ export default function Home() {
         <OtherProjects />
 
         {/* Internship Section */}
-        <Section id="internship" className="py-24 border-t border-white/5">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-white mb-4">EXPERIENCE</h2>
-            <p className="text-text-primary/40 uppercase tracking-[0.3em] text-xs font-bold">Professional Journey</p>
-          </div>
-          <div className="max-w-3xl mx-auto space-y-8">
-            <div className="glass p-8 rounded-3xl border border-white/5 relative overflow-hidden group">
-              <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
-                <h3 className="text-2xl font-bold text-neon-purple">Frontend Developer Intern</h3>
-                <span className="text-sm text-text-primary/40 font-bold uppercase tracking-widest">June 2025 - Present</span>
-              </div>
-              <p className="text-text-primary/70 mb-4">Tech Nova Solutions</p>
-              <ul className="list-disc list-inside text-sm text-text-primary/60 space-y-2">
-                <li>Developing high-performance user interfaces using Next.js and Tailwind CSS.</li>
-                <li>Collaborating with senior developers to implement complex animations with Framer Motion.</li>
-                <li>Optimizing application performance and accessibility standards.</li>
-              </ul>
-            </div>
-          </div>
-        </Section>
+        <Internship />
 
         {/* Contact Section */}
         <Section id="contact" className="py-24 border-t border-white/5 pb-32">
