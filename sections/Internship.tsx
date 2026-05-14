@@ -51,7 +51,8 @@ const Internship = () => {
         <p className="text-text-primary/40 uppercase tracking-[0.3em] text-xs font-bold">My Professional Journey</p>
       </div>
 
-      <div className="relative max-w-5xl mx-auto">
+      <div className="w-full relative max-w-5xl mx-auto">
+
         {/* Vertical Line */}
         <div className="absolute left-2 md:left-1/2 -translate-x-1/2 w-px h-full bg-gradient-to-b from-neon-cyan via-neon-purple to-transparent opacity-20" />
 

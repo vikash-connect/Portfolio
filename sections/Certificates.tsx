@@ -114,8 +114,10 @@ const Certificates = () => {
                   src={cert.image} 
                   alt={cert.title}
                   fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   className="object-cover group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100"
                 />
+
                 
                 {/* Overlay on Hover */}
                 <div className="absolute inset-0 bg-gradient-to-t from-bg/90 via-bg/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
@@ -175,8 +177,10 @@ const Certificates = () => {
                     src={selectedCert.image} 
                     alt={selectedCert.title}
                     fill
+                    sizes="100vw"
                     className="object-contain p-4 md:p-8"
                   />
+
                 </div>
                 <div className="p-8 border-t border-white/5 bg-white/5 backdrop-blur-md flex flex-col md:flex-row md:items-center justify-between gap-6">
                   <div>

@@ -100,7 +100,8 @@ const SkillCard = ({ category, items, index }: { category: string, items: any[],
           {category}
         </h3>
         
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 xs:grid-cols-2 gap-4">
+
           {items.map((item, idx) => (
             <SkillItem key={idx} {...item} />
           ))}
@@ -135,6 +136,7 @@ const Skills = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
           {skillsData.map((skill, index) => (
             <SkillCard 
               key={index} 

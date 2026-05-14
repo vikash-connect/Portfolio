@@ -13,7 +13,8 @@ const About = () => {
         <div className="absolute bottom-0 right-0 w-72 h-72 bg-neon-purple/5 blur-[100px] animate-blob" style={{ animationDelay: '2s' }} />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="w-full max-w-7xl mx-auto px-6">
+
         <motion.div 
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -44,8 +45,10 @@ const About = () => {
                     src="/profile.png" 
                     alt="Vikash" 
                     fill 
+                    sizes="(max-width: 768px) 256px, 320px"
                     className="object-cover group-hover:scale-110 transition-transform duration-700"
                   />
+
                   <div className="absolute inset-0 bg-gradient-to-t from-bg/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
               </div>

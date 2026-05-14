@@ -1,3 +1,7 @@
+"use client";
+
+import React from "react";
+import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Section from "@/components/Section";
 import Hero from "@/sections/Hero";
@@ -8,50 +12,51 @@ import OtherProjects from "@/sections/OtherProjects";
 import Internship from "@/sections/Internship";
 import Achievements from "@/sections/Achievements";
 import Certificates from "@/sections/Certificates";
-
 import Contact from "@/sections/Contact";
 import Footer from "@/components/Footer";
 
-
-
-
 export default function Home() {
-
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="w-full flex flex-col items-center"
+    >
+
+
       <Navbar />
       
-      <main>
-        {/* Hero Section */}
-        <Hero />
+      {/* Hero Section */}
+      <Hero />
 
-        {/* About Section */}
-        <About />
+      {/* About Section */}
+      <About />
 
-        {/* Skills Section */}
-        <Skills />
+      {/* Skills Section */}
+      <Skills />
 
-        {/* Featured Project Section */}
-        <FeaturedProject />
+      {/* Featured Project Section */}
+      <FeaturedProject />
 
-        {/* Other Projects Section */}
-        <OtherProjects />
+      {/* Other Projects Section */}
+      <OtherProjects />
 
-        {/* Internship Section */}
-        <Internship />
+      {/* Internship Section */}
+      <Internship />
 
-        {/* Achievements & Events Section */}
-        <Achievements />
+      {/* Achievements & Events Section */}
+      <Achievements />
 
-        {/* Certificates Gallery Section */}
-        <Certificates />
+      {/* Certificates Gallery Section */}
+      <Certificates />
 
-        {/* Contact Section */}
-        <Contact />
-      </main>
+      {/* Contact Section */}
+      <Contact />
 
       <Footer />
+    </motion.div>
 
-    </>
   );
 }
+

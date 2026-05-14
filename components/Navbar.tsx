@@ -30,12 +30,15 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${
+
+
         isScrolled 
           ? "py-3 bg-bg/80 backdrop-blur-xl border-b border-white/5 shadow-[0_4px_30px_rgba(0,0,0,0.1)]" 
           : "py-6 bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <div className="w-full max-w-7xl mx-auto px-6 flex items-center justify-between">
+
         {/* Logo */}
         <motion.div 
           initial={{ opacity: 0, x: -20 }}

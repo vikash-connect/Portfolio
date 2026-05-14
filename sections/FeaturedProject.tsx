@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { ExternalLink, CheckCircle2 } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import Section from "@/components/Section";
+import Image from "next/image";
+
 
 interface ProjectProps {
   title: string;
@@ -13,9 +15,11 @@ interface ProjectProps {
   techStack: string[];
   liveLink: string;
   previewLabel: string;
+  image: string;
   imagePosition?: "left" | "right";
   isLast?: boolean;
 }
+
 
 const ProjectShowcase = ({
   title,
@@ -24,9 +28,11 @@ const ProjectShowcase = ({
   techStack,
   liveLink,
   previewLabel,
+  image,
   imagePosition = "left",
   isLast = false,
 }: ProjectProps) => {
+
   const isImageLeft = imagePosition === "left";
 
   return (
@@ -50,24 +56,20 @@ const ProjectShowcase = ({
           {/* Animated Gradient Border */}
           <div className="absolute -inset-[2px] bg-gradient-to-r from-neon-cyan via-neon-purple to-neon-cyan rounded-[1.6rem] opacity-30 group-hover:opacity-100 blur-[2px] transition-opacity duration-500 animate-gradient-xy" />
           
-          {/* Inner Glow and Content */}
-          <div className="absolute inset-0 bg-[#0B0F19]/80 flex flex-col items-center justify-center p-8 text-center z-10">
+          {/* Image */}
+          <Image 
+            src={image}
+            alt={title}
+            fill
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            className="object-cover transition-transform duration-700 group-hover:scale-110"
+          />
+
+          {/* Inner Glow and Overlay */}
+          <div className="absolute inset-0 bg-[#0B0F19]/40 flex flex-col items-center justify-center p-8 text-center z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
             <div className="absolute inset-0 shadow-[inset_0_0_60px_rgba(0,245,255,0.15)] pointer-events-none" />
-            
-            <div className="w-20 h-20 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:border-neon-cyan/50 transition-all duration-500">
-              <div className="w-10 h-10 bg-gradient-to-br from-neon-cyan to-neon-purple rounded-lg opacity-50 blur-sm absolute" />
-              <div className="relative text-white font-black text-2xl">
-                {title.split(" ")[0].substring(0, 2).toUpperCase()}
-              </div>
-            </div>
-            
-            <h4 className="text-xl font-bold text-white/40 uppercase tracking-[0.2em]">
-              {previewLabel}
-            </h4>
-            <div className="mt-4 flex gap-2">
-              <div className="w-2 h-2 rounded-full bg-neon-cyan animate-pulse" />
-              <div className="w-2 h-2 rounded-full bg-neon-purple animate-pulse delay-75" />
-              <div className="w-2 h-2 rounded-full bg-neon-cyan animate-pulse delay-150" />
+            <div className="relative px-6 py-2 bg-bg/80 backdrop-blur-md rounded-full border border-neon-cyan/30 text-neon-cyan text-xs font-bold uppercase tracking-widest">
+              View Case Study
             </div>
           </div>
 
@@ -76,6 +78,7 @@ const ProjectShowcase = ({
             <p className="text-xs text-text-primary/60 font-medium">{tagline}</p>
           </div>
         </motion.div>
+
 
         {/* Text Content */}
         <div className="w-full lg:w-1/2">
@@ -173,7 +176,8 @@ const FeaturedProject = () => {
   return (
     <Section id="featured-project" className="relative">
       <div className="mb-20">
-        <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-white mb-4 uppercase">Featured Work</h2>
+        <h2 className="text-3xl md:text-6xl font-bold tracking-tighter text-white mb-4 uppercase">Featured Work</h2>
+
         <div className="w-20 h-1 bg-gradient-to-r from-neon-cyan to-neon-purple rounded-full" />
       </div>
 
@@ -190,8 +194,10 @@ const FeaturedProject = () => {
           "Cloud deployed production app",
         ]}
         techStack={["React", "Node.js", "Express", "MongoDB", "REST API", "Cloud Deployment"]}
+        image="/projects/election.png"
         imagePosition="left"
       />
+
 
       <ProjectShowcase
         title="Parallel — AI Career Simulation Platform"
@@ -205,9 +211,11 @@ const FeaturedProject = () => {
           "Future Career Projection",
         ]}
         techStack={["Next.js", "React", "Tailwind", "AI APIs", "Vercel"]}
+        image="/projects/parallel.png"
         imagePosition="right"
         isLast={true}
       />
+
     </Section>
   );
 };

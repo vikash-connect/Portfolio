@@ -5,8 +5,10 @@ import { motion } from "framer-motion";
 
 const Footer = () => {
   return (
-    <footer className="py-12 border-t border-white/5 bg-[#0B0F19]">
-      <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+    <footer className="w-full flex flex-col items-center py-12 border-t border-white/5 bg-[#0B0F19]">
+
+      <div className="w-full max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+
         <motion.p 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 0.4 }}

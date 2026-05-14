@@ -77,9 +77,10 @@ const OtherProjects = () => {
         <span className="text-neon-purple text-sm font-bold tracking-[0.4em] uppercase mb-2 block">
           Secondary Works
         </span>
-        <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-white">
+        <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-white">
           OTHER PROJECTS
         </h2>
+
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

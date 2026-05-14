@@ -124,7 +124,7 @@ const Hero = () => {
               FULL STACK <br className="md:hidden" /> DEVELOPER
             </span>
           </h1>
-          <p className="text-lg md:text-xl text-text-primary/60 font-medium max-w-2xl mx-auto h-[3rem] md:h-auto">
+          <p className="text-lg md:text-xl text-text-primary/60 font-medium max-w-2xl mx-auto min-h-[4.5rem] md:h-auto mb-8 md:mb-0">
             {text}<span className="animate-pulse">|</span>
           </p>
         </motion.div>
@@ -134,14 +134,16 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.8 }}
-          className="flex flex-col md:flex-row gap-6 mt-4"
+          className="flex flex-col md:flex-row gap-4 md:gap-6"
         >
-          <MagneticButton className="shadow-[0_0_20px_rgba(0,245,255,0.2)]">
+
+          <MagneticButton className="w-full md:w-auto shadow-[0_0_20px_rgba(0,245,255,0.2)]">
             View Projects
           </MagneticButton>
-          <MagneticButton variant="secondary">
+          <MagneticButton variant="secondary" className="w-full md:w-auto">
             Contact Me
           </MagneticButton>
+
         </motion.div>
       </motion.div>
 

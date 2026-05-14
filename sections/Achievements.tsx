@@ -98,7 +98,8 @@ const Achievements = () => {
         </div>
 
         {/* Two-Column Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 max-w-6xl mx-auto">
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 max-w-6xl mx-auto">
+
           
           {/* Achievements Column */}
           <div className="space-y-8">
