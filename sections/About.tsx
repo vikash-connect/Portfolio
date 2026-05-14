@@ -38,13 +38,18 @@ const About = () => {
               </motion.div>
 
               {/* Image Container */}
-              <div className="absolute inset-4 rounded-full overflow-hidden glass p-2">
+              <div className="absolute inset-4 rounded-full overflow-hidden glass p-2 group">
                 <div className="w-full h-full rounded-full bg-white/5 flex items-center justify-center overflow-hidden relative">
-                   {/* Using a placeholder image that feels techy */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-neon-cyan/20 to-neon-purple/20" />
-                  <span className="text-4xl font-bold text-white/20">VK</span>
+                  <Image 
+                    src="/profile.png" 
+                    alt="Vikash" 
+                    fill 
+                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-bg/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
               </div>
+
             </motion.div>
 
             {/* Caption */}

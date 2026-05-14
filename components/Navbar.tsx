@@ -7,10 +7,13 @@ import { Menu, X } from "lucide-react";
 const navLinks = [
   { name: "About", href: "#about" },
   { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#projects" },
-  { name: "Internship", href: "#internship" },
+  { name: "Projects", href: "#featured-project" },
+  { name: "Experience", href: "#internship" },
+  { name: "Achievements", href: "#achievements" },
+  { name: "Certificates", href: "#certificates" },
   { name: "Contact", href: "#contact" },
 ];
+
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
