@@ -6,6 +6,8 @@ import Skills from "@/sections/Skills";
 import FeaturedProject from "@/sections/FeaturedProject";
 import OtherProjects from "@/sections/OtherProjects";
 import Internship from "@/sections/Internship";
+import Achievements from "@/sections/Achievements";
+
 
 export default function Home() {
 
@@ -31,6 +33,10 @@ export default function Home() {
 
         {/* Internship Section */}
         <Internship />
+
+        {/* Achievements & Events Section */}
+        <Achievements />
+
 
         {/* Contact Section */}
         <Section id="contact" className="py-24 border-t border-white/5 pb-32">
